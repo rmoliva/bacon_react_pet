@@ -1,0 +1,7 @@
+{
+  "generator-react-webpack": {
+    "appName": "rfp",
+    "style": "sass",
+    "postcss": true
+  }
+}
