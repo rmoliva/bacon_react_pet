@@ -8,10 +8,17 @@ import App from './components/Main';
 // ReactDOM.render(<App />, document.getElementById('app'));
 import BaconJS from 'baconjs';
 
-var actionDispatcher = require('actions/dispatcher').actionDispatcher;
+var actionListStamp = require('actions/listStamp').actionListStamp;
 
 debugger;
 
-var actionBus = BaconJS.Bus();
-var stamp = actionDispatcher({initialState: {}, sendAction: actionBus});
-stamp.stream();
+var addBus = BaconJS.Bus();
+var delBus = BaconJS.Bus();
+
+var list = actionListStamp();
+
+var stream = list({
+  initialState: [],
+  addItem: addBus,
+  delItem: delBus
+});

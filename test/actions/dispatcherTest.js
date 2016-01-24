@@ -4,17 +4,9 @@
 'use strict';
 
 import BaconJS from 'baconjs';
-import Promise from 'bluebird';
-var actionDispatcher = require('actions/dispatcher').actionDispatcher;
+import promiseBaconSubscription from 'helpers/baconPromiseHelper';
 
-var promiseBaconSubscription = function(stream) {
-  return new Promise((resolve) => {
-    stream.subscribe((event) => {
-      resolve(event);
-      return BaconJS.noMore;
-    });
-  });
-};
+var actionDispatcher = require('actions/dispatcher').actionDispatcher;
 
 describe('Dispatcher', () => {
   let stamp;
