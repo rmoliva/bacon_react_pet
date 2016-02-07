@@ -1,5 +1,5 @@
 import BaconJS from 'baconjs';
-import stampit from 'stampit';
+// import stampit from 'stampit';
 import _ from 'lodash';
 
 /**
@@ -8,27 +8,12 @@ import _ from 'lodash';
  */
 export function actionListStamp() {
   return function getStream(options) {
-    console.log(options);
     return BaconJS.update(options.initialState,
       options.addItem, function(state, newItem) {
-        console.log('addItem0');
-        console.log(newItem);
-        console.log('addItem1');
-        console.log(state);
-        state.push(newItem);
-        console.log('addItem2');
-        console.log(state);
-        return state;
+        return state.concat(_.clone(newItem));
       },
-      options.delItem, function(state, removeItem) {
-        console.log('delItem0');
-        console.log(removeItem);
-        console.log('delItem1');
-        console.log(state);
-        _.remove(state, removeItem);
-        console.log('delItem2');
-        console.log(state);
-        return state;
+      options.removeById, function(state, id) {
+        return _.pullAllBy(state, [{'id': id}], 'id');
       }
     );
   };
