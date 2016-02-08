@@ -56,3 +56,6 @@ And configured my atom editor to use JSCS:
 
 ####StampIt
 [StampIt](https://github.com/stampit-org/stampit) Create objects from reusable, composable behaviors. Stampit uses three different kinds of prototypal OO to let you inherit behavior in a way that is much more powerful and flexible than classical OO.
+
+####Ramda
+[Ramda](http://ramdajs.com/) A practical functional library for Javascript programmers..
