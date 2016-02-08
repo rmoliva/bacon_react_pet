@@ -2,16 +2,12 @@
 
 import React, { Component, PropTypes } from 'react';
 
-class viewToDo  extends Component {
+class ToDoComponent  extends Component {
     render() {
-      debugger;
-
-
       return <div>Hello {this.props.name}</div>;
     }
 }
 
+ToDoComponent.propTypes = {name: PropTypes.string.isRequired};
 
-viewToDo.propTypes = {name: PropTypes.func.isRequired};
-
-export default viewToDo;
+export default ToDoComponent;
