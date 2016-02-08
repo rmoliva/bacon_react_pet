@@ -29,6 +29,7 @@ module.exports = {
     ],
     alias: {
       fn: srcPath + '/fn/',
+      views: srcPath + '/views/',
       actions: srcPath + '/actions/',
       components: srcPath + '/components/',
       sources: srcPath + '/sources/',

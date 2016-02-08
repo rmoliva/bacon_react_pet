@@ -3,7 +3,6 @@
 /*eslint no-console: 0*/
 'use strict';
 
-import _ from 'lodash';
 import BaconJS from 'baconjs';
 var actionCompletedArrayStamp = require('actions/completedArrayStamp').actionCompletedArrayStamp();
 

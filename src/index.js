@@ -9,25 +9,10 @@ import App from './components/Main';
 import BaconJS from 'baconjs';
 import R from 'ramda';
 
-var actionCompletedArrayStamp = require('actions/completedArrayStamp').actionCompletedArrayStamp();
+import React from 'react';
+import ReactDOM from 'react-dom';
+import viewToDo from './views/todo';
 
-var options = {id: 2, marked: true};
-var listTest = [{
-  id: 1,
-  name: 'juan'
-}, {
-  id: 2,
-  name: 'pepe'
-}, {
-  id: 3,
-  name: 'tomas'
-}];
+console.log(viewToDo)
 
-debugger
-
-var fn = R.reject(R.propEq('id',2))
-
-console.log(fn(listTest));
-
-
-console.log(fn(this.testList));
+ReactDOM.render(<viewToDo name="John" />, document.getElementById('app'));
