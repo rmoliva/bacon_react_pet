@@ -5,19 +5,20 @@
 
 import _ from 'lodash';
 import BaconJS from 'baconjs';
-var actionListStamp = require('actions/listStamp').actionListStamp;
+var actionListStamp = require('actions/listStamp').actionListStamp();
 
 describe('actionListStamp', function() {
   beforeEach(function() {
     this.values = [];
-    this.list = actionListStamp();
     this.addBus = BaconJS.Bus();
     this.removeById = BaconJS.Bus();
-    this.streamList = this.list({
+    this.list = actionListStamp({
       initialState: [],
       addItem: this.addBus,
       removeById: this.removeById
     });
+
+    this.streamList = this.list.getListStream();
     this.streamList.onValue(_.bind(function(a) {
       this.values.push(_.clone(a));
     }, this));

@@ -1,5 +1,6 @@
 import BaconJS from 'baconjs';
-// import stampit from 'stampit';
+import stampit from 'stampit';
+import R from 'ramda';
 import _ from 'lodash';
 
 /**
@@ -7,7 +8,7 @@ import _ from 'lodash';
  * functional reactive List
  */
 export function actionListStamp() {
-  return function getStream(options) {
+/*  return function getStream(options) {
     return BaconJS.update(options.initialState,
       options.addItem, function(state, newItem) {
         return state.concat(_.clone(newItem));
@@ -18,38 +19,26 @@ export function actionListStamp() {
     );
   };
 }
-
-/*  return stampit().props({
+*/
+  return stampit().props({
     initialState: [],
     addItem: null,
-    delItem: null
+    removeById: null
   }).init(function() {
     this.stream = BaconJS.update(this.initialState,
       this.addItem, function(state, newItem) {
-        console.log('addItem0');
-        console.log(newItem);
-        console.log('addItem1');
-        console.log(state);
-        state.push(newItem);
-        console.log('addItem2');
-        console.log(state);
-        return state;
+        return R.insert(-1, newItem)(state);
       },
-      this.delItem, function(state, removeItem) {
-        console.log('delItem0');
-        console.log(removeItem);
-        console.log('delItem1');
-        console.log(state);
-        _.remove(state, removeItem);
-        console.log('delItem2');
-        console.log(state);
-        return state;
-      }
+      this.removeById, _.bind(function(state, id) {
+        return this.fnRemoveById(id)(state);
+      }, this)
     );
   }).methods({
-    getStream() {
+    getListStream() {
       return this.stream;
+    },
+    fnRemoveById(id) {
+      return R.reject(R.propEq('id',id));
     }
   });
 }
-*/

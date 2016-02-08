@@ -7,18 +7,27 @@ import App from './components/Main';
 // Render the main component into the dom
 // ReactDOM.render(<App />, document.getElementById('app'));
 import BaconJS from 'baconjs';
+import R from 'ramda';
 
-var actionListStamp = require('actions/listStamp').actionListStamp;
+var actionCompletedArrayStamp = require('actions/completedArrayStamp').actionCompletedArrayStamp();
 
-debugger;
+var options = {id: 2, marked: true};
+var listTest = [{
+  id: 1,
+  name: 'juan'
+}, {
+  id: 2,
+  name: 'pepe'
+}, {
+  id: 3,
+  name: 'tomas'
+}];
 
-var addBus = BaconJS.Bus();
-var delBus = BaconJS.Bus();
+debugger
 
-var list = actionListStamp();
+var fn = R.reject(R.propEq('id',2))
 
-var stream = list({
-  initialState: [],
-  addItem: addBus,
-  delItem: delBus
-});
+console.log(fn(listTest));
+
+
+console.log(fn(this.testList));

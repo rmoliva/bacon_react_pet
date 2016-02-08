@@ -41,6 +41,7 @@ module.exports = {
   resolve: {
     extensions: [ '', '.js', '.jsx' ],
     alias: {
+      fn: srcPath + 'fn/',
       actions: srcPath + 'actions/',
       helpers: path.join(__dirname, '/../test/helpers'),
       components: srcPath + 'components/',

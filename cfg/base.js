@@ -28,6 +28,7 @@ module.exports = {
       '.jsx'
     ],
     alias: {
+      fn: srcPath + '/fn/',
       actions: srcPath + '/actions/',
       components: srcPath + '/components/',
       sources: srcPath + '/sources/',
