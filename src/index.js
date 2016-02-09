@@ -10,4 +10,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ToDo from './views/todo';
 
-ReactDOM.render(<ToDo name="John" />, document.getElementById('app'));
+
+
+var onHandleClick = function(options) {
+  console.log(options)
+};
+
+
+ReactDOM.render(<ToDo handleAction={onHandleClick} />, document.getElementById('app'));

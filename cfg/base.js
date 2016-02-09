@@ -1,5 +1,7 @@
 'use strict';
 let path = require('path');
+let $ = require('jquery');
+
 let port = 8000;
 let srcPath = path.join(__dirname, '/../src');
 let publicPath = '/assets/';

@@ -2,6 +2,7 @@
 
 let path = require('path');
 let srcPath = path.join(__dirname, '/../src/');
+let $ = require('jquery');
 
 let baseConfig = require('./base');
 

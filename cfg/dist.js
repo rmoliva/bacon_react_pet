@@ -3,6 +3,7 @@
 let path = require('path');
 let webpack = require('webpack');
 let _ = require('lodash');
+let $ = require('jquery');
 
 let baseConfig = require('./base');
 
